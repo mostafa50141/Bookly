@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Features/Home/presentation/views/home_view.dart';
 import 'package:flutter_application_1/Features/Splash/presentation/views/widgets/sliding_text.dart';
-import 'package:flutter_application_1/constants.dart';
 import 'package:flutter_application_1/core/Utils/assetsData.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get_navigation/get_navigation.dart';
