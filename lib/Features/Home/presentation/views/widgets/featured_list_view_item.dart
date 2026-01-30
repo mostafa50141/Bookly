@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/Utils/assetsData.dart';
 
-class CustomListViewItem extends StatelessWidget {
-  const CustomListViewItem({super.key});
+class FeaturedListViewItem extends StatelessWidget {
+  const FeaturedListViewItem({super.key});
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.3,
       child: AspectRatio(
         aspectRatio: 2.7 / 4,
         child: Container(
-          //width: MediaQuery.of(context).size.width,
-          //height: MediaQuery.of(context).size.height * 0.25,
+          //padding: const EdgeInsets.symmetric(horizontal: 8),
+          //margin: const EdgeInsets.only(right: 16),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
             color: Colors.red,
