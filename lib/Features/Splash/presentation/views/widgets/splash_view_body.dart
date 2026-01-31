@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Features/Home/presentation/views/home_view.dart';
 import 'package:flutter_application_1/Features/Splash/presentation/views/widgets/sliding_text.dart';
+import 'package:flutter_application_1/core/Utils/app_router.dart';
 import 'package:flutter_application_1/core/Utils/assetsData.dart';
 import 'package:gap/gap.dart';
-import 'package:get/get_navigation/get_navigation.dart';
-import 'package:get/instance_manager.dart';
+import 'package:go_router/go_router.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -58,7 +57,8 @@ class _SplashViewBodyState extends State<SplashViewBody>
 
   void navigateToHome() {
     Future.delayed(const Duration(seconds: 3), () {
-      Get.off(() => const HomeView());
+      // ignore: use_build_context_synchronously
+      GoRouter.of(context).push(AppRouter.KHomeView);
     });
   }
 }
