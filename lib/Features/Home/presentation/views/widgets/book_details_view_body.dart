@@ -3,6 +3,7 @@ import 'package:flutter_application_1/Features/Home/presentation/views/widgets/b
 import 'package:flutter_application_1/Features/Home/presentation/views/widgets/books_action.dart';
 import 'package:flutter_application_1/Features/Home/presentation/views/widgets/custom_book_details_app_bar.dart';
 import 'package:flutter_application_1/Features/Home/presentation/views/widgets/custom_book_image.dart';
+import 'package:flutter_application_1/Features/Home/presentation/views/widgets/similar_books_list_view.dart';
 import 'package:flutter_application_1/core/Utils/styles.dart';
 import 'package:gap/gap.dart';
 
@@ -44,6 +45,23 @@ class BookDetailsViewBody extends StatelessWidget {
             const Gap(20),
 
             const BooksAction(),
+            const Gap(50),
+
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                'You can also like',
+                style: Styles.textStyle14.copyWith(fontWeight: FontWeight.w600),
+              ),
+            ),
+            const Gap(20),
+
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.15,
+              child: const SimilarBooksListView(),
+            ),
+
+            const Gap(20),
           ],
         ),
       ),
