@@ -3,6 +3,6 @@ import 'package:flutter_application_1/Features/Home/data/models/book_model/book_
 import 'package:flutter_application_1/core/errors/failures.dart';
 
 abstract class HomeRepo {
-  Future<Either<Failures, List<BookModel>>> fetchNewsetBooks();
-  Future<Either<Failures, List<BookModel>>> fetchFeaturedBooks();
+  Future<Either<Failure, List<BookModel>>> fetchNewsetBooks();
+  Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks();
 }

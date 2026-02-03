@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter_application_1/Features/Home/data/models/book_model/book_model.dart';
 import 'package:flutter_application_1/Features/Home/data/repos/home_repo.dart';
 import 'package:flutter_application_1/core/Utils/api_service.dart';
@@ -10,7 +11,7 @@ class HomeRepoImpl implements HomeRepo {
   HomeRepoImpl({required this.apiService});
 
   @override
-  Future<Either<Failures, List<BookModel>>> fetchNewsetBooks() async {
+  Future<Either<Failure, List<BookModel>>> fetchNewsetBooks() async {
     try {
       var data = await apiService.get(
         endPoint:
@@ -22,12 +23,15 @@ class HomeRepoImpl implements HomeRepo {
       }
       return right(books);
     } catch (e) {
-      return Left(ServerFailure());
+      if (e is DioError) {
+        return left(ServerFailure.fromDioError(e));
+      }
+      return left(ServerFailure(e.toString()));
     }
   }
 
   @override
-  Future<Either<Failures, List<BookModel>>> fetchFeaturedBooks() {
+  Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
     throw UnimplementedError();
   }
 }
