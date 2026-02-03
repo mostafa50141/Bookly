@@ -7,8 +7,8 @@ import 'package:flutter_application_1/core/Utils/styles.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 
-class BestSellerListViewItem extends StatelessWidget {
-  const BestSellerListViewItem({super.key});
+class BookListViewItem extends StatelessWidget {
+  const BookListViewItem({super.key});
 
   @override
   Widget build(BuildContext context) {
