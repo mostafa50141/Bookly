@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter_application_1/core/Utils/app_router.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({super.key});
@@ -15,7 +16,9 @@ class CustomAppBar extends StatelessWidget {
           Image.asset('assets/images/Logo.png', height: 18),
           IconButton(
             icon: const Icon(FontAwesomeIcons.magnifyingGlass, size: 18.0),
-            onPressed: () {},
+            onPressed: () {
+              GoRouter.of(context).push(AppRouter.KSearchView);
+            },
           ),
         ],
       ),
