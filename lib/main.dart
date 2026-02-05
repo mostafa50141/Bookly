@@ -1,6 +1,12 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Features/Home/data/repos/home_repo_impl.dart';
+import 'package:flutter_application_1/Features/Home/presentation/manager/featured_books_cubit/featured_books_cubit.dart';
+import 'package:flutter_application_1/Features/Home/presentation/manager/newset_books_cubit/newset_books_cubit.dart';
 import 'package:flutter_application_1/constants.dart';
 import 'package:flutter_application_1/core/Utils/app_router.dart';
+import 'package:flutter_application_1/core/Utils/service_locator.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -12,12 +18,25 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      routerConfig: AppRouter.router,
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: kPrimaryColor,
-        textTheme: GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => FeaturedBooksCubit(getIt.get<HomeRepoImpl>()),
+        ),
+
+        BlocProvider(
+          create: (context) => NewsetBooksCubit(getIt.get<HomeRepoImpl>()),
+        ),
+      ],
+      child: MaterialApp.router(
+        routerConfig: AppRouter.router,
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData.dark().copyWith(
+          scaffoldBackgroundColor: kPrimaryColor,
+          textTheme: GoogleFonts.montserratTextTheme(
+            ThemeData.dark().textTheme,
+          ),
+        ),
       ),
     );
   }

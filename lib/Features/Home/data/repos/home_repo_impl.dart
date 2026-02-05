@@ -8,7 +8,7 @@ import 'package:flutter_application_1/core/errors/failures.dart';
 class HomeRepoImpl implements HomeRepo {
   final ApiService apiService;
 
-  HomeRepoImpl({required this.apiService});
+  HomeRepoImpl(this.apiService);
 
   @override
   Future<Either<Failure, List<BookModel>>> fetchNewsetBooks() async {
