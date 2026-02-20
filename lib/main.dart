@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Features/Home/data/repos/home_repo_impl.dart';
 import 'package:flutter_application_1/Features/Home/presentation/manager/featured_books_cubit/featured_books_cubit.dart';
@@ -28,9 +27,11 @@ class MyApp extends StatelessWidget {
         ),
 
         BlocProvider(
-          create: (context) => NewsetBooksCubit(getIt.get<HomeRepoImpl>()),
+          create: (context) =>
+              NewsetBooksCubit(getIt.get<HomeRepoImpl>())..fetchNewsetBooks(),
         ),
       ],
+
       child: MaterialApp.router(
         routerConfig: AppRouter.router,
         debugShowCheckedModeBanner: false,
